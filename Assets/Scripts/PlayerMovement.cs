@@ -29,18 +29,18 @@ public class PlayerMovement : MonoBehaviour
     {
         xaxis = Input.GetAxis("Horizontal");
         yaxis = Input.GetAxis("Vertical");
-        myTime += Time.deltaTime;
+        
 
         Robot = GameObject.FindGameObjectWithTag("Player");
         Robot.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
         anim.SetFloat("x", xaxis);
         anim.SetFloat("y", yaxis);
-
+        myTime += Time.deltaTime;
         //if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         //{
         //    Robot.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, speed, 0f);
         //}
-        
+       // Debug.Log(myTime);
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Robot.GetComponent<Rigidbody2D>().velocity = new Vector3(speed, 0f, 0f);
@@ -49,10 +49,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Robot.GetComponent<Rigidbody2D>().velocity = new Vector3(-speed, 0f, 0f);
         }
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) /*&& myTime < 5.0*/)
+        
+        if (Input.GetKey(KeyCode.W))
         {
-            
             Robot.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            myTime = 0;
         }
         
     }

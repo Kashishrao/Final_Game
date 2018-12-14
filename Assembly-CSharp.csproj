@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Positions.cs" />
     <None Include="Assets\Sprites\Background\License.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/Unity-Projects/Final/Final_Game/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
