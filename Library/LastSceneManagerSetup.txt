@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/SampleScene.unity
+- path: C:/Users/patel/Desktop/COMP305_2108-master-master/Assets/Scenes/Week6_2.unity
   isLoaded: 1
   isActive: 1

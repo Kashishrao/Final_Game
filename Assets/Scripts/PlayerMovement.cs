@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private GameObject Robot; 
-    
-
+    private GameObject Robot;
+    private float myTime = 0.0f;
+    public float jumpForce;
     private float xaxis;
     private float yaxis;
     public float speed;
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         xaxis = Input.GetAxis("Horizontal");
         yaxis = Input.GetAxis("Vertical");
-
+        myTime += Time.deltaTime;
 
         Robot = GameObject.FindGameObjectWithTag("Player");
         Robot.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
@@ -49,9 +49,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Robot.GetComponent<Rigidbody2D>().velocity = new Vector3(-speed, 0f, 0f);
         }
-
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) /*&& myTime < 5.0*/)
+        {
+            
+            Robot.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
+        
     }
-
-   
-    
 }
